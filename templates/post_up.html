@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=0.5, user-scalable=yes"/>
+
+    <title>너만 타냐?-놀이기구 후기 작성</title>
+
+    <link rel="stylesheet" href="../static/css/common.css"/>
+    <link rel="stylesheet" href="../static/css/post_up.css"/>
+    <link rel="stylesheet" href="../static/css/nav.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/img/favi.ico">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <script src="../static/js/post.js"></script>
+</head>
+<body>
+<header>
+    <div class="logo"><h2><a href="/amusementpark">너만 타냐?</a></h2></div>
+    <nav class="nav">
+        <div>
+            <p>{{ username }}님 안녕하세요</p>
+            <button type="button" id="log_out_btn" class="btn btn-dark" onclick="logout()">Log Out</button>
+        </div>
+        <ul class="depth">
+            <li><a href="/introduction1">놀이기구</a></li>
+            <li><a href="/post">놀이기구 후기</a></li>
+            <li><a href="/bonuspage">나도 탈 수 있을까?</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="post_from inner">
+    <h1 class="form_title">놀이공원 후기 작성</h1>
+    <div class="form_field">
+        <from class="form_content">
+            <div class="input-group input-group-lg input2">
+                <span class="input-group-text" id="inputGroup-sizing-lg"><p>놀이공원</p></span>
+                <select id="park" class="form-select" aria-label="Default select example">
+                    <option selected>놀이공원을 선택해주세요.</option>
+                    <option value="에버랜드">에버랜드</option>
+                    <option value="롯데월드">롯데월드</option>
+                    <option value="경주월드">경주월드</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="write_title" class="form-label">제목 작성</label>
+                <input type="text" class="form-control" id="write_title"
+                       placeholder="제목을 작성해주세요.">
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">작성자</label>
+                <input type="text" class="form-control" id="name"
+                       placeholder="작성자를 입력해주세요.">
+            </div>
+            <div class="mb-3">
+                <label for="ride" class="form-label">놀이기구 후기</label>
+                <textarea class="form-control" id="ride" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="img" class="form-label">이미지 주소</label>
+                <input type="text" class="form-control" id="img"
+                       placeholder="이미지 주소를 입력하세요.">
+            </div>
+            <button type="button" class="btn btn-primary " data-bs-toggle="button" onclick="save_content()">등록하기
+            </button>
+            <button type="button" class="btn btn-primary " data-bs-toggle="button" onclick="location.href='/post'">
+                취소하기
+            </button>
+        </from>
+    </div>
+</section>
+</body>
+</html>

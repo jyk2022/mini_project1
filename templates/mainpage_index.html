@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>너만 타냐?</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+    <!--  bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <!--  추가 css  -->
+    <link rel="stylesheet" href="../static/css/mainpage_index.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/nav.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&amp;display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/img/favi.ico">
+
+    <script src="../static/js/mainpage_index.js"></script>
+
+</head>
+<body>
+<header>
+    <div class="logo"><h2><a href="/amusementpark">너만 타냐?</a></h2></div>
+    <nav class="nav">
+        <div>
+            <p>{{username}}님 안녕하세요</p>
+            <button type="button" id="log_out_btn" class="btn btn-dark" onclick="logout()">Log Out</button>
+        </div>
+        <ul class="depth">
+            <li><a href="/introduction1">놀이기구</a></li>
+            <li><a href="/post">놀이기구 후기</a></li>
+            <li><a href="/bonuspage">나도 탈 수 있을까?</a></li>
+        </ul>
+    </nav>
+</header>
+<!--    종열이파트 시작-->
+<section class="section1">
+        <img src="../static/img/banner1.jpg" alt="배너2">
+</section>
+<section class="inner">
+    <div class="mainpage_recommand">
+        <span>놀이기구 추천</span>
+        <div class="recommand__slot">
+            <section class="recommand_slot1">
+                <div class="amusement_name_tooltip">아틀란티스</div>
+            </section>
+            <section class="recommand_slot2">
+                <div class="amusement_name_tooltip">자이로드롭</div>
+            </section>
+            <section class="recommand_slot3">
+                <div class="amusement_name_tooltip">후렌치레볼루션</div>
+            </section>
+            <section class="recommand_slot4">
+                <div class="amusement_name_tooltip">스카이엑스</div>
+            </section>
+            <section class="recommand_slot5">
+                <div class="amusement_name_tooltip">킹바이킹</div>
+            </section>
+            <section class="recommand_slot6">
+                <div class="amusement_name_tooltip">블랙홀 2000</div>
+            </section>
+        </div>
+        <div class="mainpage_recommand_button">
+            <button onclick="location.href='/introduction1'">놀이기구 전체 보기</button>
+        </div>
+    </div>
+    <div class="mainpage_review">
+        <span>놀이기구 후기</span>
+        <div class="review__slot-1" id="mainpage_reviewpost"></div>
+        <div class="mainpage_review_button">
+            <button onclick="location.href='/post'">후기 전체보기</button>
+        </div>
+    </div>
+</section>
+<div class="up_btn"><a href="#"><img src="data:image/png;base64,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" title="위로 가기"></a></div>
+</body>
+</html>
