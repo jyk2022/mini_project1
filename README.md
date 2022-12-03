@@ -1,1 +1,1 @@
-# mini_project1
+# amusement-park-project
